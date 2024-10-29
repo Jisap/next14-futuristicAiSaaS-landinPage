@@ -13,6 +13,20 @@ const config: Config = {
       lg: "1200px",
     },
     extend: {
+      colors:{
+        violet: {
+          400: '#8b5cf6',
+        },
+        fuchsia: {
+          400: '#d946ef',
+        },
+        amber: {
+          300: '#fcd34d',
+        },
+        teal: {
+          300: '#5eead4',
+        },
+      },
       fontFamily: {
         heading: ["var(--font-sora)", "sans-serif"],
         body: ["var(--font-space-grotesk)", "sans-serif"],
