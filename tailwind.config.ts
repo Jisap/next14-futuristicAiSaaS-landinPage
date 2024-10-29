@@ -26,6 +26,9 @@ const config: Config = {
         teal: {
           300: '#5eead4',
         },
+        gray: {
+          950: '#0f0f0f'
+        }
       },
       fontFamily: {
         heading: ["var(--font-sora)", "sans-serif"],
