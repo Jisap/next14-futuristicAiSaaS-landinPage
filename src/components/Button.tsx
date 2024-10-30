@@ -2,7 +2,7 @@ import { cva } from "class-variance-authority";
 import { HTMLAttributes } from "react";
 
 
-type ButtonProps = { variant: "primary" | "secondary" | "tertiary" } & HTMLAttributes<HTMLButtonElement>
+export type ButtonProps = { variant: "primary" | "secondary" | "tertiary" } & HTMLAttributes<HTMLButtonElement>
 
 
 const classes = cva( "text-xs tracking-widest uppercase font-bold h-10 px-6 rounded-lg", {

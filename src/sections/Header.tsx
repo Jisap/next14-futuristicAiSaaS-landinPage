@@ -1,5 +1,5 @@
 import logoImage from "@/assets/images/sphereal-logo.svg?url"; // No queremos el svg como un componente, sino como una url
-import { Button } from "@/components/Button";
+import { Button, ButtonProps } from "@/components/Button";
 
 
 export const navItems = [
@@ -29,7 +29,7 @@ export const loginItems = [
     href: "#sign-up",
   },
 ] satisfies {
-    buttonVariant: "primary" | "secondary" | "tertiary";
+    buttonVariant: ButtonProps["variant"];
     name: string;
     href: string;
 }[]
