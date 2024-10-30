@@ -38,7 +38,7 @@ export const Header = () => {
   return (
     <header className="border-b border-gray-200/20">
       <div className="container">
-        <div className="h-18 flex justify-between items-center">
+        <div className="h-18 lg:h-20 flex justify-between items-center">
           {/* logo */}
           <div className="flex gap-4 items-center">
             <div 
@@ -52,7 +52,7 @@ export const Header = () => {
           </div>
 
           {/* nav-items */}
-          <div className="h-full">
+          <div className="h-full hidden md:flex">
             <nav className="h-full">
               {navItems.map(({ name, href }) => (
                 <a 
@@ -81,6 +81,7 @@ export const Header = () => {
               </Button>
             ))}
           </div>
+
           <div className="flex items-center lg:hidden">
             {/* El linear gradient crea un fondo de color sólido que cubre el área de contenido del botón (content-box)*/}
             {/* El conic gradient aplica un degradado cónico a todo el boton incluyendo el borde (border-box) */}

@@ -22,12 +22,13 @@ export const Button = (props: ButtonProps ) => {
   
   const { 
     className = "",     // className prop is passed to the button
-    ...otherProps       // other props are passed by cva
+    children,           // children prop is passed to the button  
+    ...otherProps       // other props are passed by cva  
   } = props;
   
   return (
     <button className={classes({ ...otherProps, className})}>
-      Button
+      {children}
     </button>
   )
 }
