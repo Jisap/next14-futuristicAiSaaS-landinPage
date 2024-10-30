@@ -1,4 +1,5 @@
 import logoImage from "@/assets/images/sphereal-logo.svg?url"; // No queremos el svg como un componente, sino como una url
+import { Button } from "@/components/Button";
 
 
 export const navItems = [
@@ -27,13 +28,18 @@ export const loginItems = [
     name: "Sign Up",
     href: "#sign-up",
   },
-];
+] satisfies {
+    buttonVariant: "primary" | "secondary" | "tertiary";
+    name: string;
+    href: string;
+}[]
 
 export const Header = () => {
   return (
     <header className="border-b border-gray-200/20">
       <div className="container">
         <div className="h-18 flex justify-between items-center">
+          {/* logo */}
           <div className="flex gap-4 items-center">
             <div 
               className=" size-10 bg-gray-200 bg-[conic-gradient(from_45deg,_var(--color-violet-400),_var(--color-fuchsia-400),_var(--color-amber-300),_var(--color-teal-300),_var(--color-violet-400))]"
@@ -45,6 +51,7 @@ export const Header = () => {
             <div className="font-extrabold text-2xl">sphereal.ai</div>
           </div>
 
+          {/* nav-items */}
           <div className="h-full">
             <nav className="h-full">
               {navItems.map(({ name, href }) => (
@@ -62,13 +69,25 @@ export const Header = () => {
             </nav>
           </div>
 
-          <div className="flex items-center">
+          {/* buttons */}
+          <div className="hidden lg:flex gap-4">
+            {loginItems.map(({ buttonVariant, name, href }) => (
+              <Button 
+                variant={buttonVariant}
+              >
+                <a href={href} key={name}>
+                  {name}
+                </a>
+              </Button>
+            ))}
+          </div>
+          <div className="flex items-center lg:hidden">
             {/* El linear gradient crea un fondo de color sólido que cubre el área de contenido del botón (content-box)*/}
             {/* El conic gradient aplica un degradado cónico a todo el boton incluyendo el borde (border-box) */}
             {/* Cada capa se limita a un area expecifica y por lo tanto se puede ver el border como un gradiente */}
             <button 
               className="
-                size-10 rounded-lg border-2 border-transparent relative 
+                size-10 rounded-lg relative border-2 border-transparent 
                 [background:linear-gradient(_var(--color-gray-950),_var(--color-gray-950))_content-box,conic-gradient(from_45deg,_var(--color-violet-400),_var(--color-fuchsia-400),_var(--color-amber-300),_var(--color-teal-300),_var(--color-violet-400))_border-box]"
             >
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
