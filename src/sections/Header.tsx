@@ -44,8 +44,25 @@ export const Header = () => {
               ></div>
             <div className="font-extrabold text-2xl">sphereal.ai</div>
           </div>
-          <div></div>
-          <div>
+
+          <div className="h-full">
+            <nav className="h-full">
+              {navItems.map(({ name, href }) => (
+                <a 
+                  href={href}
+                  key={href}
+                  // dibuja antes y despues(último elemento) del name una linea vertical de 1px de color gray-200
+                  className="h-full px-10 relative font-bold text-xs tracking-widest text-gray-400 uppercase inline-flex items-center
+                  before:content-[''] before:absolute before:bottom-0 before:h-2 before:w-px before:bg-gray-200/20 before:left-0
+                  last:after:absolute last:after:bottom-0 last:after:h-2 last:after:w-px last:after:bg-gray-200/20 last:after:right-0"
+                >
+                  {name}
+                </a>
+              ))}
+            </nav>
+          </div>
+
+          <div className="flex items-center">
             {/* El linear gradient crea un fondo de color sólido que cubre el área de contenido del botón (content-box)*/}
             {/* El conic gradient aplica un degradado cónico a todo el boton incluyendo el borde (border-box) */}
             {/* Cada capa se limita a un area expecifica y por lo tanto se puede ver el border como un gradiente */}
