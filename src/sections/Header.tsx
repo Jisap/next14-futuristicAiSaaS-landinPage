@@ -2,6 +2,7 @@
 
 import logoImage from "@/assets/images/sphereal-logo.svg?url"; // No queremos el svg como un componente, sino como una url
 import { Button, ButtonProps } from "@/components/Button";
+import { Orbit } from "@/components/Orbit";
 import { useState } from "react";
 import { twMerge } from "tailwind-merge";
 
@@ -40,7 +41,7 @@ export const loginItems = [
 
 export const Header = () => {
 
-  const [isMobileNavOpen, setIsMobileNavOpen] = useState(true);
+  const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
 
 
 
@@ -124,7 +125,22 @@ export const Header = () => {
       </header>
 
       { isMobileNavOpen && (
-        <div className="fixed top-18 left-0 bottom-0 right-0 bg-gray-950 z-30">
+        <div className="fixed top-18 left-0 bottom-0 right-0 bg-gray-950 z-30 overflow-hidden">
+          <div className="absolute-center isolate -z-10">
+            <Orbit />
+          </div>
+          <div className="absolute-center isolate -z-10">
+            <Orbit className="size-[350px]"/>
+          </div>
+          <div className="absolute-center isolate -z-10">
+            <Orbit className="size-[500px]"/>
+          </div>
+          <div className="absolute-center isolate -z-10">
+            <Orbit className="size-[650px]"/>
+          </div>
+          <div className="absolute-center isolate -z-10">
+            <Orbit className="size-[800px]" />
+          </div>
           <div className="container h-full">
             <nav className="flex flex-col items-center gap-4 py-8 h-full justify-center">
               {navItems.map(({ name, href }) => (
