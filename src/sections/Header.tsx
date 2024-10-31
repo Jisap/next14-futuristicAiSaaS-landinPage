@@ -40,13 +40,13 @@ export const loginItems = [
 
 export const Header = () => {
 
-  const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
+  const [isMobileNavOpen, setIsMobileNavOpen] = useState(true);
 
 
 
   return (
     <>
-      <header className="border-b border-gray-200/20">
+      <header className="border-b border-gray-200/20 relative z-40">
         <div className="container">
           <div className="h-18 lg:h-20 flex justify-between items-center">
             {/* logo */}
@@ -82,13 +82,13 @@ export const Header = () => {
             {/* buttons */}
             <div className="hidden lg:flex gap-4">
               {loginItems.map(({ buttonVariant, name, href }) => (
-                <Button 
-                  variant={buttonVariant}
-                >
-                  <a href={href} key={name}>
-                    {name}
-                  </a>
-                </Button>
+                <a href={href} key={name}>
+                  <Button 
+                    variant={buttonVariant}
+                  >
+                      {name}
+                  </Button>
+                </a>
               ))}
             </div>
 
@@ -124,12 +124,27 @@ export const Header = () => {
       </header>
 
       { isMobileNavOpen && (
-        <div>
-          <div className="container">
-            <nav>
+        <div className="fixed top-18 left-0 bottom-0 right-0 bg-gray-950 z-30">
+          <div className="container h-full">
+            <nav className="flex flex-col items-center gap-4 py-8 h-full justify-center">
               {navItems.map(({ name, href }) => (
-                <a href={href} key={name}>
+                <a 
+                  href={href} 
+                  key={name} 
+                  className="text-gray-400 uppercase tracking-widest font-bold text-xs h-10"
+                >
                   {name}
+                </a>
+              ))}
+              {loginItems.map(({ name, href, buttonVariant }) => (
+                <a 
+                  href={href} 
+                  key={name} 
+                  className="w-full max-w-xs"
+                >
+                  <Button variant={buttonVariant} block>
+                    {name}
+                  </Button>
                 </a>
               ))}
             </nav>
