@@ -25,10 +25,12 @@ export const Hero = () => {
                 Start Chatting
               </Button>
             </div>
-            <Image 
-              src={robotImg}
-              alt="robot"
-            />
+            <div className='mt-20 rounded-2xl border-2 overflow-hidden border-gradient'>
+              <Image 
+                src={robotImg}
+                alt="robot"
+              />
+            </div>
           </div>
         </div>
       </div>
