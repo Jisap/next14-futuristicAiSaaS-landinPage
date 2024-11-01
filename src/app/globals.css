@@ -10,6 +10,7 @@
     --color-amber-300: theme('colors.amber.300');
     --color-teal-300: theme('colors.teal.300');
     --color-gray-950: theme('colors.gray.950');
+    --color-border: theme('colors.gray.200/20%');
   }
 
   .absolute-center {

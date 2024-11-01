@@ -28,6 +28,9 @@ const config: Config = {
         },
         gray: {
           950: '#0f0f0f'
+        },
+        border: {
+          200: '#e5e7eb33'
         }
       },
       fontFamily: {
