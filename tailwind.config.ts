@@ -19,6 +19,7 @@ const config: Config = {
         },
         fuchsia: {
           400: '#d946ef',
+          900: '#4c0d2e',
         },
         amber: {
           300: '#fcd34d',
@@ -28,6 +29,9 @@ const config: Config = {
         },
         gray: {
           950: '#0f0f0f'
+        },
+        indigo: {
+          900: '#1e1a78'
         },
         border: {
           200: '#e5e7eb33'
