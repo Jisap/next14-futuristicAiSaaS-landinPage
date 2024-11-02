@@ -6,6 +6,7 @@ import Image from 'next/image';
 import underlineImage from '@/assets/images/underline.svg?url'
 import Loader from '@/assets/images/loader.svg'
 import { Orbit } from '@/components/Orbit';
+import { Planet } from '@/components/Planet';
 
 
 export const Hero = () => {
@@ -77,8 +78,16 @@ export const Hero = () => {
             <div className='relative'>
               {/* planets */}
               <div className='absolute left-1/2 top-0'>
-                <div className='bg-gradient-to-b from-violet-400 to-gray-950 size-8 rounded-full
-                -translate-x-[316px] -translate-y-[77px] rotate-135'></div>
+                <Planet 
+                  size="lg"
+                  color="violet"
+                  className='-translate-x-[316px] -translate-y-[76px] rotate-135'
+                />
+                <Planet
+                  size="lg"
+                  color="violet"
+                  className='-translate-y-[189px] translate-x-[334px] -rotate-135'
+                />
               </div>
               <div className='relative mt-20 rounded-2xl border-2 overflow-hidden border-gradient flex'>
                 {/* image robot */}
