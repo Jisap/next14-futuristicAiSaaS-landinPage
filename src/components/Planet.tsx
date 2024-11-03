@@ -5,14 +5,14 @@ import { HTMLAttributes } from 'react';
 const classes = cva('bg-gradient-to-b  to-gray-950 rounded-full', {
   variants: {
     size: {
-      sm: '',
-      md: '',
+      sm: 'size-4',
+      md: 'size-6',
       lg: 'size-8',
     },
     color: {
       violet: 'from-violet-400',
-      teal: '',
-      fuchsia: '',
+      teal: 'from-teal-400',
+      fuchsia: 'from-fuchsia-400',
     }
   },
   defaultVariants:{

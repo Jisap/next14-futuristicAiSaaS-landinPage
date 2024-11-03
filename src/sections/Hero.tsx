@@ -15,7 +15,7 @@ export const Hero = () => {
       <div className="container">  
         <div className='border-l border-r border-[var(--color-border)]'>
           {/* mask-image para difuminar el comienzo superior e inferior del div */}
-          <div className='container py-24 relative isolate overflow-hidden md:py-36 [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)]'>
+          <div className='container py-24 relative isolate overflow-hidden md:py-36 lg:py-48 [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)]'>
             {/* Aquí se especifica un gradiente radial que comienza desde un círculo que se extiende hasta la esquina más lejana del elemento (farthest-corner) 
             Esto genera un fondo radial que pasa de fuchsia a indigo y termina en transparencia. */}
             {/* mask-image crea un círculo que se extiende hasta el lado más lejano del contenedor, 
@@ -43,7 +43,7 @@ export const Hero = () => {
                 <Orbit className='size-[1350px]' />
               </div>
             </div>
-            <h1 className='text-4xl md:text-5xl font-semibold text-gray-100 text-center leading-tight'>
+            <h1 className='text-4xl md:text-5xl lg:text-6xlfont-semibold text-gray-100 text-center leading-tight'>
               Unlock the Future of AI Conversations with{" "}
               <span className='relative'>
                 <span>
@@ -62,7 +62,7 @@ export const Hero = () => {
               </span>
             </h1>
 
-            <p className='text-center text-lg md:text-xl mt-8'>
+            <p className='text-center text-lg md:text-xl mt-8 max-w-3xl mx-auto'>
               Harness the power of AI with Sphereal. Elevate your productivity and streamline your workflow with our cutting-edge platform.
             </p>
 
@@ -75,7 +75,7 @@ export const Hero = () => {
               </Button>
             </div>
 
-            <div className='relative'>
+            <div className='relative isolate max-w-5xl mx-auto'>
               {/* planets */}
               <div className='absolute left-1/2 top-0'>
                 <Planet 
@@ -88,7 +88,31 @@ export const Hero = () => {
                   color="violet"
                   className='-translate-y-[189px] translate-x-[334px] -rotate-135'
                 />
+                <Planet
+                  size="md"
+                  color="teal"
+                  className='-translate-y-[342px] translate-x-[488px] -rotate-135'
+                />
+                <Planet
+                  size="sm"
+                  color="fuchsia"
+                  className='-translate-y-[372px] -translate-x-[508px] -rotate-135'
+                />
               </div>
+
+              <div className='absolute left-0 z-10 top-[30%] -translate-x-10 hidden lg:block'>
+                <div className='bg-gray-800/70 backdrop-blur-md border border-gray-700 rounded-xl p-4 w-72'>
+                  <div>Can you generate an incredible frontend dev video tutorial ?</div>
+                  <div className='text-right text-gray-400 text-sm font-semibold'>1m ago</div>
+                </div>
+              </div>
+              <div className='absolute right-0 z-10 top-[50%] translate-x-10 hidden lg:block'>
+                <div className='bg-gray-800/70 backdrop-blur-md border border-gray-700 rounded-xl p-4 w-72'>
+                  <strong>Brainwave:</strong> I create one based on videos from Frontend Tribe!
+                  <div className='text-right text-gray-400 text-sm font-semibold'>Just now</div>
+                </div>
+              </div>
+
               <div className='relative mt-20 rounded-2xl border-2 overflow-hidden border-gradient flex'>
                 {/* image robot */}
                 <Image 
@@ -96,7 +120,7 @@ export const Hero = () => {
                   alt="robot"
                 />
                 {/* input */}
-                <div className='absolute bottom-2 md:bottom-4 left-1/2 -translate-x-1/2 w-full max-w-xs px-[15px] flex justify-center'>
+                <div className='absolute bottom-2 md:bottom-4 lg:botomm-10 left-1/2 -translate-x-1/2 w-full max-w-xs px-[15px] flex justify-center'>
                   <div className='bg-gray-950/80 flex items-center justify-center gap-4 px-4 py-2 rounded-2xl w-[320px] max-w-full'>
                     <Loader className='text-violet-400'/>
                     <div className='font-semibold text-xl text-gray-100'>
