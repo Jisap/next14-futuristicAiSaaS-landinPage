@@ -11,7 +11,7 @@ import { Planet } from '@/components/Planet';
 
 export const Hero = () => {
   return (
-    <section className="pb-[1000px]">
+    <section>
       <div className="container">  
         <div className='border-l border-r border-[var(--color-border)]'>
           {/* mask-image para difuminar el comienzo superior e inferior del div */}
