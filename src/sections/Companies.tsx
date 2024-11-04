@@ -5,6 +5,7 @@ import PulseLogo from "../assets/images/pulse-logo.svg";
 import OutsideLogo from "../assets/images/outside-logo.svg";
 import CelestialLogo from "../assets/images/celestial-logo.svg";
 import { SectionBorder } from "@/components/SectionBorder";
+import { SectionContent } from "./SectionContent";
 
 export const companies = [
   {
@@ -38,14 +39,20 @@ export const Companies = () => {
     <section className="pb-[1000px]">
       <div className="container">
         <SectionBorder>
-          <h2>Empowering creators at leading companies</h2>
-          <div>
-            {companies.map(({ logo: Logo, name }) => (
-              <div key={name}>
-                <Logo />
+          <SectionContent className="!pt-0">
+            <h2 className="text-center text-xs font-bold uppercase tracking-widest test-gray-500">
+              Empowering creators at leading companies
+            </h2>
+            <div className="flex mt-20 overflow-x-clip -mx-4 lg:-mx-8">
+              <div className="flex flex-none gap-18 md:gap-36 px-18">
+                {companies.map(({ logo: Logo, name }) => (
+                  <div key={name}>
+                    <Logo className="h-8"/>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
+            </div>
+          </SectionContent>
         </SectionBorder>
       </div>
     </section>
