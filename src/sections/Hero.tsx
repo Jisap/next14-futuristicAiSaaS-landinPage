@@ -7,13 +7,15 @@ import underlineImage from '@/assets/images/underline.svg?url'
 import Loader from '@/assets/images/loader.svg'
 import { Orbit } from '@/components/Orbit';
 import { Planet } from '@/components/Planet';
+import { SectionBorder } from '@/components/SectionBorder';
 
 
 export const Hero = () => {
   return (
     <section>
       <div className="container">  
-        <div className='border-l border-r border-[var(--color-border)]'>
+        <SectionBorder className='border-l border-r border-[var(--color-border)]'>
+          
           {/* mask-image para difuminar el comienzo superior e inferior del div */}
           <div className='container py-24 relative isolate overflow-hidden md:py-36 lg:py-48 [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)]'>
             {/* Aquí se especifica un gradiente radial que comienza desde un círculo que se extiende hasta la esquina más lejana del elemento (farthest-corner) 
@@ -131,7 +133,8 @@ export const Hero = () => {
               </div>
             </div>
           </div>
-        </div>
+
+        </SectionBorder>
       </div>
     </section>
   )

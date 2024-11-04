@@ -4,6 +4,7 @@ import QuantumLogo from "../assets/images/quantum-logo.svg";
 import PulseLogo from "../assets/images/pulse-logo.svg";
 import OutsideLogo from "../assets/images/outside-logo.svg";
 import CelestialLogo from "../assets/images/celestial-logo.svg";
+import { SectionBorder } from "@/components/SectionBorder";
 
 export const companies = [
   {
@@ -33,7 +34,22 @@ export const companies = [
 ];
 
 export const Companies = () => {
-  return <section>companies</section>;
+  return (
+    <section className="pb-[1000px]">
+      <div className="container">
+        <SectionBorder>
+          <h2>Empowering creators at leading companies</h2>
+          <div>
+            {companies.map(({ logo: Logo, name }) => (
+              <div key={name}>
+                <Logo />
+              </div>
+            ))}
+          </div>
+        </SectionBorder>
+      </div>
+    </section>
+  )
 };
 
 export default Companies;
