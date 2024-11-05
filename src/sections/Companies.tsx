@@ -36,7 +36,7 @@ export const companies = [
 
 export const Companies = () => {
   return (
-    <section className="pb-[1000px]">
+    <section>
       <div className="container">
         <SectionBorder>
           <SectionContent className="!pt-0">
