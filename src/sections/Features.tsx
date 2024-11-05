@@ -101,14 +101,20 @@ export const Features = () => {
               <div className="absolute-center">
                 <Logo className="size-24"/>
               </div>
-              <div className="outline outline-1 outline-red-500 absolute inset-0" style={{transform: `rotate(0deg)`}}>
+              {logos.map(({src, alt, rotate}) => (
                 <div 
-                  className="outline outline-1 outline-yellow-500 inline-flex size-10 items-center justify-center border border-[var(--color-border)] rounded-lg absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 -rotate-0" 
-                  style={{transform: "translate(-50%, -50%) rotate(-0deg)"}}
-                >
-                  <Image src={slackLogo} alt="slack logo" className="size-6" />
+                  className="absolute inset-0" 
+                  style={{transform: `rotate(${rotate}deg)`}}
+                  key={alt}
+                  >
+                  <div 
+                    className="inline-flex size-10 items-center justify-center border border-[var(--color-border)] rounded-lg absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 -rotate-0 bg-gray-950" 
+                    style={{transform: `translate(-50%, -50%) rotate(-${rotate}deg)`}}
+                  >
+                    <Image src={src} alt={alt} className="size-6" />
+                  </div>
                 </div>
-              </div>
+              ))}
             </div>
           </SectionContent>
         </SectionBorder>
