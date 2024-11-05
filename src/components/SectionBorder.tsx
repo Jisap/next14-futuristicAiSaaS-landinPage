@@ -34,3 +34,6 @@ export const SectionBorder = (props: {borderTop?: boolean} & HTMLAttributes<HTML
   );
 };
 
+
+// -translate-x-1/2: Aplica una transformación en el eje X (horizontal) moviendo el elemento hacia la izquierda (-) la mitad de su propio ancho.
+// -translate-y-1/2: Aplica una transformación en el eje Y (vertical) moviendo el elemento hacia arriba (-) la mitad de su propia altura

@@ -12,6 +12,8 @@ import { Button } from "@/components/Button";
 import { Orbit } from "@/components/Orbit";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
+import { Logo } from "@/components/Logo";
+import Image from "next/image";
 
 export const features = [
   "Effortless integration",
@@ -95,6 +97,17 @@ export const Features = () => {
               </div>
               <div className="absolute-center">
                 <Orbit className="size-full" />
+              </div>
+              <div className="absolute-center">
+                <Logo className="size-24"/>
+              </div>
+              <div className="outline outline-1 outline-red-500 absolute inset-0" style={{transform: `rotate(0deg)`}}>
+                <div 
+                  className="outline outline-1 outline-yellow-500 inline-flex size-10 items-center justify-center border border-[var(--color-border)] rounded-lg absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 -rotate-0" 
+                  style={{transform: "translate(-50%, -50%) rotate(-0deg)"}}
+                >
+                  <Image src={slackLogo} alt="slack logo" className="size-6" />
+                </div>
               </div>
             </div>
           </SectionContent>
