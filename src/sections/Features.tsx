@@ -69,10 +69,10 @@ export const Features = () => {
     <section className="pb-[100px]">
       <div className="container"> 
         <SectionBorder borderTop>
-          <SectionContent className="md:px-20">
-            <div className="grid grid-cols-1 gap-20">
+          <SectionContent className="md:px-20 lg:px-40">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
               <div>
-                <h2 className="text-3xl md:text-4xl font-semibold text-gray-200 leading-tight">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-gray-200 leading-tight">
                   Your AI-powered collaboration companion
                 </h2>
                 <ul className="mt-12 flex flex-col gap-8">
@@ -92,7 +92,7 @@ export const Features = () => {
                 </Button>
               </div>
               <div className="flex justify-center">
-                <div className="size-[270px] md:size-[450px] relative">
+                <div className="size-[270px] md:size-[450px] flex flex-shrink-0 relative">
                   <div className="absolute inset-0">
                     <Orbit className="size-full"/>
                   </div>
