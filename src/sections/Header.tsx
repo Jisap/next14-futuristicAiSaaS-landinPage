@@ -2,6 +2,7 @@
 
 import logoImage from "@/assets/images/sphereal-logo.svg?url"; // No queremos el svg como un componente, sino como una url
 import { Button, ButtonProps } from "@/components/Button";
+import { Logo } from "@/components/Logo";
 import { Orbit } from "@/components/Orbit";
 import { useState } from "react";
 import { twMerge } from "tailwind-merge";
@@ -52,13 +53,14 @@ export const Header = () => {
           <div className="h-18 lg:h-20 flex justify-between items-center">
             {/* logo */}
             <div className="flex gap-4 items-center">
-              <div 
+              {/* <div 
                 className=" size-10 bg-gray-200 bg-[conic-gradient(from_45deg,_var(--color-violet-400),_var(--color-fuchsia-400),_var(--color-amber-300),_var(--color-teal-300),_var(--color-violet-400))]"
                 style={{
                   maskImage: `url(${logoImage.src})`,
                   maskSize: "contain",
                 }}
-                ></div>
+                ></div> */}
+                <Logo />
               <div className="font-extrabold text-2xl">sphereal.ai</div>
             </div>
 

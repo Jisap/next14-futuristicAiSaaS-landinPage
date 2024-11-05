@@ -86,8 +86,16 @@ export const Features = () => {
             >
               Try it now
             </Button>
-            <div>
-              <Orbit />
+            <div className="size-[270px] relative">
+              <div className="absolute inset-0">
+                <Orbit className="size-full"/>
+              </div>
+              <div className="absolute-center">
+                <Orbit className="size-[180px]" />
+              </div>
+              <div className="absolute-center">
+                <Orbit className="size-full" />
+              </div>
             </div>
           </SectionContent>
         </SectionBorder>
