@@ -69,10 +69,10 @@ export const Features = () => {
     <section className="pb-[100px]">
       <div className="container"> 
         <SectionBorder borderTop>
-          <SectionContent>
+          <SectionContent className="md:px-20">
             <div className="grid grid-cols-1 gap-20">
               <div>
-                <h2 className="text-3xl font-semibold text-gray-200">
+                <h2 className="text-3xl md:text-4xl font-semibold text-gray-200 leading-tight">
                   Your AI-powered collaboration companion
                 </h2>
                 <ul className="mt-12 flex flex-col gap-8">
@@ -92,12 +92,12 @@ export const Features = () => {
                 </Button>
               </div>
               <div className="flex justify-center">
-                <div className="size-[270px] relative">
+                <div className="size-[270px] md:size-[450px] relative">
                   <div className="absolute inset-0">
                     <Orbit className="size-full"/>
                   </div>
                   <div className="absolute-center">
-                    <Orbit className="size-[180px]" />
+                    <Orbit className="size-[180px] md:size-[300px]" />
                   </div>
                   <div className="absolute-center">
                     <Orbit className="size-full" />
@@ -112,10 +112,10 @@ export const Features = () => {
                       key={alt}
                       >
                       <div 
-                        className="inline-flex size-10 items-center justify-center border border-[var(--color-border)] rounded-lg absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 -rotate-0 bg-gray-950" 
+                        className="inline-flex size-10 md:size-14 items-center justify-center border border-[var(--color-border)] rounded-lg absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 -rotate-0 bg-gray-950" 
                         style={{transform: `translate(-50%, -50%) rotate(-${rotate}deg)`}}
                       >
-                        <Image src={src} alt={alt} className="size-6" />
+                        <Image src={src} alt={alt} className="size-6 md:size-9" />
                       </div>
                     </div>
                   ))}
