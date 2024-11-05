@@ -70,51 +70,57 @@ export const Features = () => {
       <div className="container"> 
         <SectionBorder borderTop>
           <SectionContent>
-            <h2 className="text-3xl font-semibold text-gray-200">
-              Your AI-powered collaboration companion
-            </h2>
-            <ul className="mt-12 flex flex-col gap-8">
-              {features.map((feature) => (
-                <li key={feature} className="flex items-center gap-4">
-                  <FontAwesomeIcon icon={faCircleCheck} className="size-6 text-violet-400" />
-                  <span className="text-xl font-medium">
-                    {feature}
-                  </span>
-                </li>
-              ))}
-            </ul>
-            <Button
-              className="mt-16"
-            >
-              Try it now
-            </Button>
-            <div className="size-[270px] relative">
-              <div className="absolute inset-0">
-                <Orbit className="size-full"/>
+            <div className="grid grid-cols-1 gap-20">
+              <div>
+                <h2 className="text-3xl font-semibold text-gray-200">
+                  Your AI-powered collaboration companion
+                </h2>
+                <ul className="mt-12 flex flex-col gap-8">
+                  {features.map((feature) => (
+                    <li key={feature} className="flex items-center gap-4">
+                      <FontAwesomeIcon icon={faCircleCheck} className="size-6 text-violet-400" />
+                      <span className="text-xl font-medium">
+                        {feature}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+                <Button
+                  className="mt-16"
+                >
+                  Try it now
+                </Button>
               </div>
-              <div className="absolute-center">
-                <Orbit className="size-[180px]" />
-              </div>
-              <div className="absolute-center">
-                <Orbit className="size-full" />
-              </div>
-              <div className="absolute-center">
-                <Logo className="size-24"/>
-              </div>
-              {logos.map(({src, alt, rotate}) => (
-                <div 
-                  className="absolute inset-0" 
-                  style={{transform: `rotate(${rotate}deg)`}}
-                  key={alt}
-                  >
-                  <div 
-                    className="inline-flex size-10 items-center justify-center border border-[var(--color-border)] rounded-lg absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 -rotate-0 bg-gray-950" 
-                    style={{transform: `translate(-50%, -50%) rotate(-${rotate}deg)`}}
-                  >
-                    <Image src={src} alt={alt} className="size-6" />
+              <div className="flex justify-center">
+                <div className="size-[270px] relative">
+                  <div className="absolute inset-0">
+                    <Orbit className="size-full"/>
                   </div>
+                  <div className="absolute-center">
+                    <Orbit className="size-[180px]" />
+                  </div>
+                  <div className="absolute-center">
+                    <Orbit className="size-full" />
+                  </div>
+                  <div className="absolute-center">
+                    <Logo className="size-24"/>
+                  </div>
+                  {logos.map(({src, alt, rotate}) => (
+                    <div 
+                      className="absolute inset-0" 
+                      style={{transform: `rotate(${rotate}deg)`}}
+                      key={alt}
+                      >
+                      <div 
+                        className="inline-flex size-10 items-center justify-center border border-[var(--color-border)] rounded-lg absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 -rotate-0 bg-gray-950" 
+                        style={{transform: `translate(-50%, -50%) rotate(-${rotate}deg)`}}
+                      >
+                        <Image src={src} alt={alt} className="size-6" />
+                      </div>
+                    </div>
+                  ))}
                 </div>
-              ))}
+              </div>
             </div>
           </SectionContent>
         </SectionBorder>
