@@ -68,12 +68,17 @@ export const Pricing = () => {
       <div className="container">
         <SectionBorder borderTop>
           <SectionContent>
-            <h2 className="text-3xl md:text-4xl leading-tight font-semibold text-center text-gray-200">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl leading-tight font-semibold text-center text-gray-200">
               Flexible plans for every need
             </h2>
-            <div className="mt-12 flex flex-col gap-8">
+            <div className="mt-12 flex flex-col gap-8 lg:flex-row lg:items-start">
               {pricingTiers.map((tier) => (
-                <div key={tier.title} className="border border-[var(--color-border)] rounded-3xl px-6 py-12 max-w-sm mx-auto">
+                <div 
+                  key={tier.title} 
+                  className={twMerge(
+                    "border border-[var(--color-border)] rounded-3xl px-6 py-12 max-w-sm mx-auto flex-1",
+                    tier.className  
+                  )}>
                   <h3 className={
                     twMerge(
                       `font-semibold text-4xl`, 
