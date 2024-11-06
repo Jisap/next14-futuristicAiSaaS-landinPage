@@ -71,8 +71,15 @@ export const Pricing = () => {
                   >
                     {tier.title}
                   </h3>
-                  <p>{tier.description}</p>
-                  <div>{tier.price}</div>
+                  <p className="mt-4 text-gray-400">{tier.description}</p>
+                  <div className="mt-8">
+                    {typeof tier.price === "number" && (
+                      <span className="text-2xl font-semibold text-gray-200 align-top">$</span>
+                    )}
+                    <span className="text-7xl font-semibold text-gray-200">
+                      {tier.price ? tier.price : <>&nbsp;</>}
+                    </span>
+                  </div>
                   <Button>{tier.buttonText}</Button>
                   <ul>
                     {tier.features.map((feature) => (
