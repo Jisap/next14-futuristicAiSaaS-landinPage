@@ -1,6 +1,7 @@
 import { SectionBorder } from "@/components/SectionBorder";
 import { SectionContent } from "./SectionContent";
 import { Button } from "@/components/Button";
+import { twMerge } from "tailwind-merge";
 
 export const pricingTiers = [
   {
@@ -52,15 +53,24 @@ export const Pricing = () => {
   return (
     <section className="pb-[100opx]">
       <div className="container">
-        <SectionBorder>
+        <SectionBorder >
           <SectionContent>
-            <h2>
+            <h2 className="text-3xl font-semibold text-center text-gray-200">
               Flexible plans for every need
             </h2>
-            <div>
+            <div className="mt-12">
               {pricingTiers.map((tier) => (
-                <div key={tier.title}>
-                  <h3>{tier.title}</h3>
+                <div key={tier.title} className="border border-[var(--color-border)] rounded-3xl px-6 py-12">
+                  <h3 className={
+                    twMerge(
+                      `font-semibold text-4xl`, 
+                      tier.color=== "violet" && "text-violet-400",
+                      tier.color=== "amber" && "text-amber-300",
+                      tier.color=== "teal" && "text-teal-300"
+                    )}
+                  >
+                    {tier.title}
+                  </h3>
                   <p>{tier.description}</p>
                   <div>{tier.price}</div>
                   <Button>{tier.buttonText}</Button>
