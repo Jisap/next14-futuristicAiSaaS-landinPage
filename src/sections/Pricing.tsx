@@ -1,3 +1,7 @@
+import { SectionBorder } from "@/components/SectionBorder";
+import { SectionContent } from "./SectionContent";
+import { Button } from "@/components/Button";
+
 export const pricingTiers = [
   {
     title: "Basic",
@@ -45,7 +49,36 @@ export const pricingTiers = [
 ];
 
 export const Pricing = () => {
-  return <section>Pricing Section</section>;
+  return (
+    <section className="pb-[100opx]">
+      <div className="container">
+        <SectionBorder>
+          <SectionContent>
+            <h2>
+              Flexible plans for every need
+            </h2>
+            <div>
+              {pricingTiers.map((tier) => (
+                <div key={tier.title}>
+                  <h3>{tier.title}</h3>
+                  <p>{tier.description}</p>
+                  <div>{tier.price}</div>
+                  <Button>{tier.buttonText}</Button>
+                  <ul>
+                    {tier.features.map((feature) => (
+                      <li key={feature}>
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </SectionContent>
+        </SectionBorder>
+      </div>
+    </section>
+  )
 };
 
 export default Pricing;
