@@ -2,6 +2,8 @@ import { SectionBorder } from "@/components/SectionBorder";
 import { SectionContent } from "./SectionContent";
 import { Button, ButtonProps } from "@/components/Button";
 import { twMerge } from "tailwind-merge";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 
 export const pricingTiers = [
   {
@@ -64,12 +66,12 @@ export const Pricing = () => {
   return (
     <section className="pb-[100opx]">
       <div className="container">
-        <SectionBorder >
+        <SectionBorder borderTop>
           <SectionContent>
-            <h2 className="text-3xl font-semibold text-center text-gray-200">
+            <h2 className="text-3xl leading-tight font-semibold text-center text-gray-200">
               Flexible plans for every need
             </h2>
-            <div className="mt-12">
+            <div className="mt-12 flex flex-col gap-8">
               {pricingTiers.map((tier) => (
                 <div key={tier.title} className="border border-[var(--color-border)] rounded-3xl px-6 py-12">
                   <h3 className={
@@ -94,13 +96,17 @@ export const Pricing = () => {
                   <Button
                     className="mt-8"
                     variant={tier.buttonVariant}
+                    block
                   >
                     {tier.buttonText}
                   </Button>
-                  <ul>
+                  <ul className="flex flex-col gap-4 mt-4">
                     {tier.features.map((feature) => (
-                      <li key={feature}>
-                        {feature}
+                      <li key={feature} className="border-t border-[var(--color-border)] pt-4 flex gap-4">
+                        <FontAwesomeIcon icon={faCheckCircle} className="size-6 text-violet-400 flex-shrink-0"/>
+                        <span className="font-medium">
+                          {feature}
+                        </span>
                       </li>
                     ))}
                   </ul>
