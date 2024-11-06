@@ -1,6 +1,6 @@
 import { SectionBorder } from "@/components/SectionBorder";
 import { SectionContent } from "./SectionContent";
-import { Button } from "@/components/Button";
+import { Button, ButtonProps } from "@/components/Button";
 import { twMerge } from "tailwind-merge";
 
 export const pricingTiers = [
@@ -9,6 +9,7 @@ export const pricingTiers = [
     description: "AI chatbot, personalized recommendations",
     price: "Free",
     buttonText: "Get Started",
+    buttonVariant: "secondary",
     features: [
       "Access to AI chatbot for natural language conversations",
       "Basic task automation for simple workflows",
@@ -22,6 +23,7 @@ export const pricingTiers = [
     description: "Advanced AI capabilities for enhanced productivity",
     price: 99,
     buttonText: "Upgrade to Premium",
+    buttonVariant: "secondary",
     features: [
       "All Basic features included",
       "Priority access to new AI features and updates",
@@ -47,7 +49,16 @@ export const pricingTiers = [
     color: "teal",
     className: "lg:py-12 lg:my-6",
   },
-];
+] satisfies {
+  title: string;
+  description: string;
+  price: string |number | null;
+  buttonText: string;
+  buttonVariant?: ButtonProps['variant'];
+  features: string[];
+  color: string;
+  className?: string;
+}[];
 
 export const Pricing = () => {
   return (
@@ -80,7 +91,12 @@ export const Pricing = () => {
                       {tier.price ? tier.price : <>&nbsp;</>}
                     </span>
                   </div>
-                  <Button>{tier.buttonText}</Button>
+                  <Button
+                    className="mt-8"
+                    variant={tier.buttonVariant}
+                  >
+                    {tier.buttonText}
+                  </Button>
                   <ul>
                     {tier.features.map((feature) => (
                       <li key={feature}>
