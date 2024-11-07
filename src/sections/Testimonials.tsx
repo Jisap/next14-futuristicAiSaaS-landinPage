@@ -50,7 +50,7 @@ export const Testimonials = () => {
   return (
     <section className="pb-[1000px]">
       <div className="container">
-        <SectionBorder>
+        <SectionBorder borderTop>
           <SectionContent>
             <div className="border-gradient rounded-3xl px-6 md:px-10 lg:px-16 py-16 lg:py-24 relative flex flex-col md:flex-row items-center gap-12 md:mx-10 lg:mx-20">
               <FontAwesomeIcon 
@@ -67,7 +67,7 @@ export const Testimonials = () => {
                       <p className="text-xl md:text-2xl font-medium">
                         {testimonial.quote}
                       </p>
-                      <cite className="not-italic">
+                      <cite className="not-italic lg:text-right">
                         <Image 
                           src={testimonial.image} 
                           alt={testimonial.name} 
