@@ -1,8 +1,13 @@
+"use client"
+
 import React from "react";
 import AshwinSantiago from "@/assets/images/ashwin-santiago.jpg";
 import AlecWhitten from "@/assets/images/alec-whitten.jpg";
 import ReneWells from "@/assets/images/rene-wells.jpg";
 import MollieHall from "@/assets/images/mollie-hall.jpg";
+import { SectionBorder } from "@/components/SectionBorder";
+import { SectionContent } from "./SectionContent";
+import test from "node:test";
 
 export const testimonials = [
   {
@@ -35,8 +40,32 @@ export const testimonials = [
   },
 ];
 
+const SELECTED_TESTIMONIAL_INDEX = 0;
+
 export const Testimonials = () => {
-  return <section>testimonials section</section>;
+
+  return (
+    <section className="pb-[1000px]">
+      <div className="container">
+        <SectionBorder>
+          <SectionContent>
+            <div>
+              {testimonials.map((testimonial, index) => (
+                <React.Fragment key={testimonial.name}>
+                  { SELECTED_TESTIMONIAL_INDEX  === index && (
+                    <blockquote key={testimonial.name}>
+                      <p>{testimonial.quote}</p>
+                    </blockquote>
+
+                  )}                
+                </React.Fragment>
+              ))}
+            </div>
+          </SectionContent>
+        </SectionBorder>
+      </div>
+    </section>
+  )
 };
 
 export default Testimonials;
