@@ -48,14 +48,14 @@ const SELECTED_TESTIMONIAL_INDEX = 0;
 export const Testimonials = () => {
 
   return (
-    <section className="pb-[1000px]">
+    <section>
       <div className="container">
         <SectionBorder borderTop>
           <SectionContent>
             <div className="border-gradient rounded-3xl px-6 md:px-10 lg:px-16 py-16 lg:py-24 relative flex flex-col md:flex-row items-center gap-12 md:mx-10 lg:mx-20">
               <FontAwesomeIcon 
                 icon={faQuoteLeft} 
-                className="absolute size-20 text-violet-400 top-0 -translate-y-1/2"
+                className="absolute size-20 text-violet-400 top-0 left-6 md:left-10 lg:left-16 -translate-y-1/2"
               />
               {testimonials.map((testimonial, index) => (
                 <React.Fragment key={testimonial.name}>
