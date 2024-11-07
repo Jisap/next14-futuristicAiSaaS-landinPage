@@ -8,6 +8,9 @@ import MollieHall from "@/assets/images/mollie-hall.jpg";
 import { SectionBorder } from "@/components/SectionBorder";
 import { SectionContent } from "./SectionContent";
 import test from "node:test";
+import Image from "next/image";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faQuoteLeft } from "@fortawesome/free-solid-svg-icons";
 
 export const testimonials = [
   {
@@ -49,17 +52,35 @@ export const Testimonials = () => {
       <div className="container">
         <SectionBorder>
           <SectionContent>
-            <div>
+            <div className="border-gradient rounded-3xl px-6 py-16 relative flex flex-col gap-12">
+              <FontAwesomeIcon 
+                icon={faQuoteLeft} 
+                className="absolute size-20 text-violet-400 top-0 -translate-y-1/2"
+              />
               {testimonials.map((testimonial, index) => (
                 <React.Fragment key={testimonial.name}>
                   { SELECTED_TESTIMONIAL_INDEX  === index && (
-                    <blockquote key={testimonial.name}>
-                      <p>{testimonial.quote}</p>
+                    <blockquote key={testimonial.name} className="flex flex-col gap-12">
+                      <p className="text-xl font-medium">{testimonial.quote}</p>
+                      <cite className="not-italic">
+                        <Image src={testimonial.image} alt={testimonial.name} className="rounded-xl size-28" />
+                        <div className="font-bold mt-4">{testimonial.name}</div>
+                        <div className="text-xs text-gray-400 mt-2">{testimonial.title}</div>
+                      </cite>
                     </blockquote>
-
                   )}                
                 </React.Fragment>
               ))}
+              <div className="flex gap-2 justify-center">
+                {testimonials.map((testimonial, index) => (
+                  <div key={testimonial.name} className="size-6 relative isolate inline-flex items-center justify-center">
+                    {SELECTED_TESTIMONIAL_INDEX === index && (
+                      <div className="absolute border-gradient size-full rounded-full -z-10"></div>
+                    )}
+                    <div className="size-1.5 bg-gray-200 rounded-full"></div>
+                  </div>
+                ))}
+              </div>
             </div>
           </SectionContent>
         </SectionBorder>
