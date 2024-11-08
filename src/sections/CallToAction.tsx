@@ -15,11 +15,11 @@ export const CallToAction = () => {
               <span className="relative">
                 <span> Sphereal</span>
                 <span 
-                  className="absolute top-full left-0 w-full h-4 linear-gradient"
+                  className="absolute top-full left-0 w-full h-4 linear-gradient -translate-y-1/2"
                   style={{
                     maskImage:`url(${underlineImage.src})`,
                     maskSize: "contain",
-                    maskPosition: "center",
+                    maskPosition: "top",
                     maskRepeat: "no-repeat"
                   }}  
                 ></span>
