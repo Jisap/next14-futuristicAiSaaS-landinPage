@@ -8,7 +8,7 @@ import { Planet } from "@/components/Planet";
 
 export const CallToAction = () => {
   return (
-    <section className="pb-[1000px]">
+    <section>
       <div className="container">
         <SectionBorder borderTop>
           <SectionContent className="relative isolate">
@@ -25,6 +25,18 @@ export const CallToAction = () => {
             </div>
             <div className="absolute-center -z-10">
               <Planet size="lg" color="violet" className="-translate-y-[200px] translate-x-[200px] -rotate-135" />
+            </div>
+            <div className="absolute-center -z-10">
+              <Planet size="md" color="teal" className="-translate-x-[500px] rotate-90" />
+            </div>
+            <div className="absolute-center -z-10">
+              <Planet size="md" color="teal" className="-translate-y-[100px] translate-x-[500px] -rotate-135" />
+            </div>
+            <div className="absolute-center -z-10">
+              <Planet size="sm" color="fuchsia" className="-translate-y-[250px] -translate-x-[400px] rotate-135" />
+            </div>
+            <div className="absolute-center -z-10">
+              <Planet size="sm" color="fuchsia" className="translate-y-[150px] translate-x-[400px] -rotate-45" />
             </div>
             <h2 className="text-gray-200 font-semibold text-3xl md:text-4xl lg:text-5xl max-w-3xl mx-auto text-center leading-tight">
               Join the AI Revolution wiht 
