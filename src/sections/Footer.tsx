@@ -1,4 +1,6 @@
-import React from "react";
+"use client"
+
+
 import {
   faYoutube,
   faXTwitter,
@@ -53,7 +55,18 @@ export const Footer = () => {
           <div className="font-extrabold text-2xl">sphereal.ai</div>
           <nav className="flex flex-col md:flex-row gap-8 md:gap-16 items-center">
             {navItems.map((item) => (
-              <a href={item.href} key={item.href} className="uppercase text-xs tracking-widest font-bold text-gray-400">
+              <a 
+                href={item.href} 
+                key={item.href} 
+                className="uppercase text-xs tracking-widest font-bold text-gray-400"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const element = document.querySelector(item.href);
+                  if(element) {
+                    element.scrollIntoView({behavior: "smooth"});
+                  }
+                }}
+              >
                 {item.name}
               </a>
             ))}
