@@ -1,4 +1,4 @@
-
+"use client"
 
 import robotImg from '@/assets/images/robot.jpg'
 import { Button } from '@/components/Button';
@@ -9,11 +9,26 @@ import { Orbit } from '@/components/Orbit';
 import { Planet } from '@/components/Planet';
 import { SectionBorder } from '@/components/SectionBorder';
 import { SectionContent } from './SectionContent';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef } from 'react';
 
 
 export const Hero = () => {
+
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: [
+      'end start', // Un cambio en scrollYProgress se activará cuando el final del elemento esté en el inicio de la ventana del navegador -> la sección está comenzando a entrar en la vista.
+      'start end'  // El evento se activará cuando el inicio del elemento esté en el final de la ventana del navegador ->  la sección está comenzando a salir de la vista.
+    ]
+  });
+
+  const transformedY = useTransform(scrollYProgress, [0, 1], [200, -200]); // Transforma el valor de scrollYProgress en un valor de movimiento
+
+
   return (
-    <section>
+    <section ref={sectionRef}>
       <div className="container">  
         <SectionBorder className='border-l border-r border-[var(--color-border)]'>
           {/* mask-image para difuminar el comienzo superior e inferior del div */}
@@ -102,17 +117,30 @@ export const Hero = () => {
                   />
                 </div>
 
+                {/* bubles */}
                 <div className='absolute left-0 z-10 top-[30%] -translate-x-10 hidden lg:block'>
-                  <div className='bg-gray-800/70 backdrop-blur-md border border-gray-700 rounded-xl p-4 w-72'>
-                    <div>Can you generate an incredible frontend dev video tutorial ?</div>
+                  <motion.div 
+                    className='bg-gray-800/70 backdrop-blur-md border border-gray-700 rounded-xl p-4 w-72'
+                    style={{
+                      y: transformedY
+                    }}
+                  >
+                    <div>
+                      Can you generate an incredible frontend dev video tutorial ?
+                    </div>
                     <div className='text-right text-gray-400 text-sm font-semibold'>1m ago</div>
-                  </div>
+                  </motion.div>
                 </div>
                 <div className='absolute right-0 z-10 top-[50%] translate-x-10 hidden lg:block'>
-                  <div className='bg-gray-800/70 backdrop-blur-md border border-gray-700 rounded-xl p-4 w-72'>
+                  <motion.div 
+                    className='bg-gray-800/70 backdrop-blur-md border border-gray-700 rounded-xl p-4 w-72'
+                    style={{
+                      y: transformedY
+                    }}  
+                  >
                     <strong>Brainwave:</strong> I create one based on videos from Frontend Tribe!
                     <div className='text-right text-gray-400 text-sm font-semibold'>Just now</div>
-                  </div>
+                  </motion.div>
                 </div>
 
                 <div className='relative mt-20 rounded-2xl border-2 overflow-hidden border-gradient flex'>
