@@ -9,14 +9,46 @@ import { Orbit } from '@/components/Orbit';
 import { Planet } from '@/components/Planet';
 import { SectionBorder } from '@/components/SectionBorder';
 import { SectionContent } from './SectionContent';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef } from 'react';
+import { motion, useMotionValue, useMotionValueEvent, useScroll, useSpring, useTransform } from 'framer-motion';
+import { useEffect, useRef, useState } from 'react';
 
+const useMousePosition = () => {
+  const [ innerWidth, setInnerWidth ] = useState(1);    // Ancho de la ventana del navegador
+  const [ innerHeight, setInnerHeight ] = useState(1);  // Alto de la ventana del navegador
+  const clientX = useMotionValue(0);                    // useMotionValue permite crear valores que pueden cambiar con el tiempo y que pueden ser animados.
+  const clientY = useMotionValue(0);
+  const xProgress = useTransform(clientX, [0, innerWidth], [0, 1]); // Crean transformaciones de clientX e Y en valores normalizados entre 0 y 1.
+  const yProgress = useTransform(clientY, [0, innerHeight], [0, 1]);
+
+
+  useEffect(() => {                                     // Este efecto se ejecuta una sola vez al montar el componente. Su propósito es inicializar innerWidth e innerHeight con el tamaño actual de la ventana del navegador. 
+    setInnerHeight(window.innerHeight);                 // Su propósito es inicializar innerWidth e innerHeight con el tamaño actual de la ventana del navegador.
+    setInnerWidth(window.innerWidth);
+
+    window.addEventListener('resize', () => {           // Ademas se agrega un listener para el evento resize que actualiza estos valores cada vez que el usuario cambia el tamaño de la ventana.
+      setInnerHeight(window.innerHeight);
+      setInnerWidth(window.innerWidth);
+    });
+  }, []);
+
+  useEffect(() => {                                     // Efecto para Rastrear el Movimiento del Mouse.
+    window.addEventListener('mousemove', (e) => {       // Agregar un listener para el evento mousemove que actualiza los valores de clientX y clientY cada vez que el usuario mueve el mouse.
+      clientX.set(e.clientX);
+      clientY.set(e.clientY);
+    });
+  
+  },[])
+
+  return { xProgress, yProgress }; // Devuelve un objeto que contiene los valores normalizados xProgress y yProgress, que representan la posición del mouse en relación con el ancho y alto de la ventana, respectivamente.
+}
 
 export const Hero = () => {
 
+  const { xProgress, yProgress } = useMousePosition(); // Obtener la posición del mouse en relación con el ancho y alto de la ventana
+
   const sectionRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
+
+  const { scrollYProgress } = useScroll({ // Obtiene el progreso de scroll del elemento y determina si la sección está entrando o saliendo de la vista para aplicar la animación
     target: sectionRef,
     offset: [
       'end start', // Un cambio en scrollYProgress se activará cuando el final del elemento esté en el inicio de la ventana del navegador -> la sección está comenzando a entrar en la vista.
@@ -24,8 +56,21 @@ export const Hero = () => {
     ]
   });
 
-  const transformedY = useTransform(scrollYProgress, [0, 1], [200, -200]); // Transforma el valor de scrollYProgress en un valor de movimiento
+  // Cuando se inicia la animación...
+  const transformedY = useTransform(scrollYProgress, [0, 1], [200, -200]); // Transforma el valor de scrollYProgress en un valor de movimiento -> animacion de los bubbles
+  
+  // Cuando el ratón se mueve...
+  const springX = useSpring(xProgress);                                    // Se le aplica una animación spring a xProgress (pos x del mouse)
+  const springY = useSpring(yProgress);                                    // Se le aplica una animación spring a yProgress (pos y del mouse)
+  
+  const translateLargeX = useTransform(springX, [0, 1], ['-25%', '25%']);  // Transforma el valor de springX en un valor de movimiento -> animacion de los planetas
+  const translateLargeY = useTransform(springY, [0, 1], ['-25%', '25%']);  // Transforma el valor de springY en un valor de movimiento -> animacion de los planetas
 
+  const translateMediumX = useTransform(springX, [0, 1], ['-50%', '50%']);  // Transforma el valor de springX en un valor de movimiento -> animacion de los planetas
+  const translateMediumY = useTransform(springY, [0, 1], ['-50%', '50%']);  // Transforma el valor de springY en un valor de movimiento -> animacion de los planetas
+
+  const translateSmallX = useTransform(springX, [0, 1], ['-200%', '200%']);  // Transforma el valor de springX en un valor de movimiento -> animacion de los planetas
+  const translateSmallY = useTransform(springY, [0, 1], ['-200%', '200%']);  // Transforma el valor de springY en un valor de movimiento -> animacion de los planetas
 
   return (
     <section ref={sectionRef}>
@@ -95,26 +140,54 @@ export const Hero = () => {
               <div className='relative isolate max-w-5xl mx-auto'>
                 {/* planets */}
                 <div className='absolute left-1/2 top-0'>
-                  <Planet 
-                    size="lg"
-                    color="violet"
-                    className='-translate-x-[316px] -translate-y-[76px] rotate-135'
-                  />
-                  <Planet
-                    size="lg"
-                    color="violet"
-                    className='-translate-y-[189px] translate-x-[334px] -rotate-135'
-                  />
-                  <Planet
-                    size="md"
-                    color="teal"
-                    className='-translate-y-[342px] translate-x-[488px] -rotate-135'
-                  />
-                  <Planet
-                    size="sm"
-                    color="fuchsia"
-                    className='-translate-y-[372px] -translate-x-[508px] -rotate-135'
-                  />
+                  <motion.div 
+                    style={{
+                      x: translateLargeX,
+                      y: translateLargeY
+                    }}
+                  >
+                    <Planet 
+                      size="lg"
+                      color="violet"
+                      className='-translate-x-[316px] -translate-y-[76px] rotate-135'
+                    />
+                  </motion.div>
+                  <motion.div
+                    style={{
+                      x: translateLargeX,
+                      y: translateLargeY
+                    }}
+                  >
+                    <Planet
+                      size="lg"
+                      color="violet"
+                      className='-translate-y-[189px] translate-x-[334px] -rotate-135'
+                    />
+                  </motion.div>
+                  <motion.div
+                    style={{
+                      x: translateLargeX,
+                      y: translateLargeY
+                    }}
+                  >
+                    <Planet
+                      size="md"
+                      color="teal"
+                      className='-translate-y-[342px] translate-x-[488px] -rotate-135'
+                    />
+                  </motion.div>
+                  <motion.div
+                    style={{
+                      x: translateSmallX,
+                      y: translateSmallY
+                    }}
+                  >
+                    <Planet
+                      size="sm"
+                      color="fuchsia"
+                      className='-translate-y-[372px] -translate-x-[508px] -rotate-135'
+                    />
+                  </motion.div>
                 </div>
 
                 {/* bubles */}
