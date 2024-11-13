@@ -49,7 +49,7 @@ export const Companies = () => {
             </h2>
             <div className="flex mt-20 overflow-x-clip -mx-4 lg:-mx-8">
               <motion.div 
-                className="flex flex-none gap-18 md:gap-36 px-18"
+                className="flex flex-none gap-18 md:gap-36 px-9 md:px-18"
                 initial={{x: 0}}
                 animate={{x: "-50%"}}
                 transition={{
