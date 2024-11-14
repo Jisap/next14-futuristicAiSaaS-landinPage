@@ -1,5 +1,8 @@
+"use client"
+
 import { cva } from "class-variance-authority";
-import { HTMLAttributes } from "react";
+import { animate, motion, useMotionTemplate, useMotionValue } from "framer-motion";
+import { HTMLAttributes, useEffect, useState } from "react";
 
 
 export type ButtonProps = { 
@@ -30,13 +33,41 @@ export const Button = (props: ButtonProps ) => {
   
   const { 
     className = "",     // className prop is passed to the button
+    variant = "primary",// variant por defecto es primary
     children,           // children prop is passed to the button  
     ...otherProps       // other props are passed by cva  
   } = props;
   
+  const [isHovered, setIsHovered] = useState(false);
+  const angle = useMotionValue(180);
+
+  const background = useMotionTemplate`
+    linear-gradient(var(--color-gray-950), var(--color-gray-950)) padding-box,
+    conic-gradient(from ${angle}deg, var(--color-violet-400), var(--color-fuchsia-400), var(--color-amber-300), var(--color-teal-300), var(--color-violet-400)) border-box
+  `;
+
+  useEffect(() => {
+    if(isHovered){
+      animate(angle, angle.get() + 360, {
+        duration: 1,
+        ease: "linear",
+        repeat: Infinity
+      });
+    }else{
+      animate(angle, 45, { duration: 0.5 })
+    }
+  },[isHovered, angle])
+
   return (
-    <button className={classes({ ...otherProps, className})}>
+    <motion.button 
+      className={classes({ ...otherProps, variant, className})}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      style={variant === "primary" ? {
+        background: background
+      }: undefined}
+    >
       {children}
-    </button>
+    </motion.button>
   )
 }
