@@ -32,10 +32,10 @@ const classes = cva( "text-xs tracking-widest uppercase font-bold h-10 px-6 roun
 export const Button = (props: ButtonProps ) => {
   
   const { 
-    className = "",     // className prop is passed to the button
-    variant = "primary",// variant por defecto es primary
-    children,           // children prop is passed to the button  
-    ...otherProps       // other props are passed by cva  
+    className = "",       // className prop is passed to the button
+    variant = "primary",  // variant por defecto es primary
+    children,             // children prop is passed to the button  
+    ...otherProps         // other props are passed by cva  
   } = props;
   
   const [isHovered, setIsHovered] = useState(false);
