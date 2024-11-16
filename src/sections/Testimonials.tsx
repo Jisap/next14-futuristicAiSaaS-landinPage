@@ -58,35 +58,34 @@ export const Testimonials = () => {
                 icon={faQuoteLeft} 
                 className="absolute size-20 text-violet-400 top-0 left-6 md:left-10 lg:left-16 -translate-y-1/2"
               />
-              {testimonials.map((testimonial, index) => (
-                <AnimatePresence>
-                  <React.Fragment key={testimonial.name}>
-                      { testimonialIndex  === index && (
-                        <motion.blockquote 
-                          initial={{ opacity: 0, y: 25 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          exit={{ opacity: 0, y: 25 }}
-                          transition={{ duration: 0.5 }}
-                          key={testimonial.name} 
-                          className="flex flex-col lg:flex-row gap-12"
-                        >
-                          <p className="text-xl md:text-2xl font-medium">
-                            {testimonial.quote}
-                          </p>
-                          <cite className="not-italic lg:text-right">
-                            <Image 
-                              src={testimonial.image} 
-                              alt={testimonial.name} 
-                              className="rounded-xl size-28 max-w-none" 
-                            />
-                            <div className="font-bold mt-4">{testimonial.name}</div>
-                            <div className="text-xs text-gray-400 mt-2">{testimonial.title}</div>
-                          </cite>
-                        </motion.blockquote>
-                      )}                
-                  </React.Fragment>
-                </AnimatePresence>
-              ))}
+              <AnimatePresence mode="wait">
+                {testimonials.map((testimonial, index) => 
+                  testimonialIndex  === index ? (
+                    <motion.blockquote 
+                      initial={{ opacity: 0, y: 25 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 25 }}
+                      transition={{ duration: 0.5 }}
+                      key={testimonial.name} 
+                      className="flex flex-col lg:flex-row gap-12"
+                    >
+                      <p className="text-xl md:text-2xl font-medium">
+                        {testimonial.quote}
+                      </p>
+                      <cite className="not-italic lg:text-right">
+                        <Image 
+                          src={testimonial.image} 
+                          alt={testimonial.name} 
+                          className="rounded-xl size-28 max-w-none" 
+                        />
+                        <div className="font-bold mt-4">{testimonial.name}</div>
+                        <div className="text-xs text-gray-400 mt-2">{testimonial.title}</div>
+                      </cite>
+                    </motion.blockquote>
+                  ):
+                   null 
+                )}
+              </AnimatePresence>
               <div className="flex gap-2 md:flex-col">
                 {testimonials.map((testimonial, index) => (
                   <div 
