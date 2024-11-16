@@ -124,3 +124,15 @@ export const Testimonials = () => {
 };
 
 export default Testimonials;
+
+// La prop layout indica a Framer Motion que controle automáticamente las transiciones de posición y tamaño del elemento 
+// cuando cambian sus propiedades de diseño
+
+// Cita individual (motion.blockquote): Aquí, layout asegura que, además de la animación personalizada de entrada y salida (initial, animate, y exit), 
+// los cambios en el diseño del bloque de cita (como tamaño o posición) se manejen automáticamente.
+
+// Navegación de puntos (motion.div): Usar layout="position" limita la animación al cambio de posición de este contenedor. 
+// Esto es útil para evitar recalcular otros cambios (como tamaño).
+
+// Indicador activo (motion.div): Aquí se utiliza layoutId en combinación con LayoutGroup. Esto permite que el indicador de puntos (el "dot" activo)
+// transicione suavemente entre posiciones al cambiar de testimonial
