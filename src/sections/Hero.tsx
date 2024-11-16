@@ -166,8 +166,8 @@ export const Hero = () => {
                   </motion.div>
                   <motion.div
                     style={{
-                      x: translateLargeX,
-                      y: translateLargeY
+                      x: translateMediumX,
+                      y: translateMediumY
                     }}
                   >
                     <Planet
