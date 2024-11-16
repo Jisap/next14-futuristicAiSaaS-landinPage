@@ -1,6 +1,6 @@
 "use client"
 
-import logoImage from "@/assets/images/sphereal-logo.svg?url"; // No queremos el svg como un componente, sino como una url
+//import logoImage from "@/assets/images/sphereal-logo.svg?url"; // No queremos el svg como un componente, sino como una url
 import { Button, ButtonProps } from "@/components/Button";
 import { Logo } from "@/components/Logo";
 import { Orbit } from "@/components/Orbit";

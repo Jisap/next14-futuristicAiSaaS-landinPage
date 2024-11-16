@@ -7,7 +7,6 @@ import ReneWells from "@/assets/images/rene-wells.jpg";
 import MollieHall from "@/assets/images/mollie-hall.jpg";
 import { SectionBorder } from "@/components/SectionBorder";
 import { SectionContent } from "./SectionContent";
-import test from "node:test";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faQuoteLeft } from "@fortawesome/free-solid-svg-icons";

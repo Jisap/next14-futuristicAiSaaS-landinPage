@@ -7,8 +7,8 @@ import underlineImage from '@/assets/images/underline.svg?url';
 import { Orbit } from "@/components/Orbit";
 import { Planet } from "@/components/Planet";
 import { useMousePosition } from "./Hero";
-import { useRef } from "react";
-import { useScroll, useSpring, useTransform, motion } from "framer-motion";
+
+import { useSpring, useTransform, motion } from "framer-motion";
 
 
 export const CallToAction = () => {
