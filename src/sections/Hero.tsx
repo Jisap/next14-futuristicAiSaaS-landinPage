@@ -12,7 +12,7 @@ import { SectionContent } from './SectionContent';
 import { motion, useMotionValue, useMotionValueEvent, useScroll, useSpring, useTransform } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 
-const useMousePosition = () => {
+export const useMousePosition = () => {
   const [ innerWidth, setInnerWidth ] = useState(1);    // Ancho de la ventana del navegador
   const [ innerHeight, setInnerHeight ] = useState(1);  // Alto de la ventana del navegador
   const clientX = useMotionValue(0);                    // useMotionValue permite crear valores que pueden cambiar con el tiempo y que pueden ser animados.
@@ -56,10 +56,10 @@ export const Hero = () => {
     ]
   });
 
-  // Cuando se inicia la animación...
+  // Cuando se hace scroll se anima la posición de la bubbles
   const transformedY = useTransform(scrollYProgress, [0, 1], [200, -200]); // Transforma el valor de scrollYProgress en un valor de movimiento -> animacion de los bubbles
   
-  // Cuando el ratón se mueve...
+  // Cuando el ratón se mueve se inicia efecto parallax de los planetas
   const springX = useSpring(xProgress);                                    // Se le aplica una animación spring a xProgress (pos x del mouse)
   const springY = useSpring(yProgress);                                    // Se le aplica una animación spring a yProgress (pos y del mouse)
   
